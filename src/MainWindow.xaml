@@ -13,13 +13,13 @@
     <DockPanel LastChildFill="True">
         <Border x:Name="pseudoToolbar" Background="WhiteSmoke" BorderThickness="0,0,0,1" BorderBrush="Gray" DockPanel.Dock="Top" Padding="3">
             <StackPanel Orientation="Horizontal">
-                <Label Content="Worktime" ToolTip="Worktime in minutes"></Label>
-                <xctk:IntegerUpDown x:Name="numWork" ToolTip="Worktime in minutes" Value="{Binding WorkTimeInMinutes}" Increment="5" Maximum="480" Minimum="5" Width="50" />
-                <Label Content="Breaktime" ToolTip="Breaktime in minutes" Margin="10,0,0,0"></Label>
-                <xctk:IntegerUpDown x:Name="numBreak" ToolTip="Breaktime in minutes" Value="{Binding BreakTimeInMinutes}" Increment="1" Maximum="120" Minimum="0" Width="40" />
-                <TextBlock VerticalAlignment="Center" Margin="10,0,0,0"><Hyperlink Click="SettingsLink_Click">More settings...</Hyperlink></TextBlock>
+                <Label Content="工作时间" ToolTip="以分钟为单位的工作时间"></Label>
+                <xctk:IntegerUpDown x:Name="numWork" ToolTip="以分钟为单位的工作时间" Value="{Binding WorkTimeInMinutes}" Increment="5" Maximum="480" Minimum="5" Width="50" />
+                <Label Content="休息时间" ToolTip="以分钟为单位的休息时间" Margin="10,0,0,0"></Label>
+                <xctk:IntegerUpDown x:Name="numBreak" ToolTip="以分钟为单位的休息时间" Value="{Binding BreakTimeInMinutes}" Increment="1" Maximum="120" Minimum="0" Width="40" />
+                <TextBlock VerticalAlignment="Center" Margin="10,0,0,0"><Hyperlink Click="SettingsLink_Click">更多设置...</Hyperlink></TextBlock>
                 <Border BorderThickness="1,0,0,0" BorderBrush="Gray" Margin="12,0,0,0">
-                    <TextBlock VerticalAlignment="Center" Margin="8,0,0,0"><Hyperlink Click="AboutLink_Click">About...</Hyperlink></TextBlock>
+                    <TextBlock VerticalAlignment="Center" Margin="8,0,0,0"><Hyperlink Click="AboutLink_Click">关于...</Hyperlink></TextBlock>
                 </Border>
             </StackPanel>
         </Border>
@@ -34,24 +34,24 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
-                <TextBlock FontWeight="Bold" Grid.Row="0" Grid.Column="0">Info for starters (<Hyperlink Click="DontShowStarterInfoAgain_Click">Don't show this again</Hyperlink>)</TextBlock>
-                <TextBlock Grid.Row="1" Grid.Column="0">- Click left on the above time panel to start and stop the timer</TextBlock>
-                <TextBlock Grid.Row="2" Grid.Column="0">- Click right on the above time panel to open an advanced context menu</TextBlock>
-                <TextBlock Grid.Row="3" Grid.Column="0" TextWrapping="WrapWithOverflow">- Use the mousewheel over the time panel to quickly change the size of the displayed text</TextBlock>
+                <TextBlock FontWeight="Bold" Grid.Row="0" Grid.Column="0">新手信息 (<Hyperlink Click="DontShowStarterInfoAgain_Click">不再显示</Hyperlink>)</TextBlock>
+                <TextBlock Grid.Row="1" Grid.Column="0">- 在上方时间面板上左键单击开始和停止计时器</TextBlock>
+                <TextBlock Grid.Row="2" Grid.Column="0">- 在上方时间面板上右键单击以打开高级上下文菜单</TextBlock>
+                <TextBlock Grid.Row="3" Grid.Column="0" TextWrapping="WrapWithOverflow">- 在时间面板上使用鼠标滚轮可以快速更改显示文本的大小</TextBlock>
             </Grid>
         </Border>
         <Border x:Name="timerArea" PreviewMouseDown="TimerArea_MouseDown" PreviewMouseWheel="timerArea_PreviewMouseWheel">
-            <Label x:Name="lblMain" FontSize="{Binding TextFontSize}" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="{Binding TextFontName}" Content="Click to start work">
+            <Label x:Name="lblMain" FontSize="{Binding TextFontSize}" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="{Binding TextFontName}" Content="单击开始工作">
             </Label>
             <Border.ContextMenu>
                 <ContextMenu Opened="ContextMenu_Opened" Closed="ContextMenu_Closed">
-                    <MenuItem Header="Start work" Click="MenuItemStartWork_Click" />
-                    <MenuItem Header="Start break" Click="MenuItemStartBreak_Click"/>
+                    <MenuItem Header="开始工作" Click="MenuItemStartWork_Click" />
+                    <MenuItem Header="开始休息" Click="MenuItemStartBreak_Click"/>
                     <Separator/>
-                    <MenuItem Header="Compact mode" IsCheckable="True" IsChecked="{Binding UseCompactMode}" Click="MenuItemUseCompactMode_Click"/>
+                    <MenuItem Header="紧凑模式" IsCheckable="True" IsChecked="{Binding UseCompactMode}" Click="MenuItemUseCompactMode_Click"/>
                     <Separator x:Name="ctxSep" Visibility="Collapsed"/>
-                    <MenuItem x:Name="ctxSettings" Header="Settings..." Visibility="Collapsed" Click="ctxSettings_Click"/>
-                    <MenuItem x:Name="ctxAbout" Header="About..." Visibility="Collapsed" Click="ctxAbout_Click"/>
+                    <MenuItem x:Name="ctxSettings" Header="设置..." Visibility="Collapsed" Click="ctxSettings_Click"/>
+                    <MenuItem x:Name="ctxAbout" Header="关于..." Visibility="Collapsed" Click="ctxAbout_Click"/>
                 </ContextMenu>
             </Border.ContextMenu>
         </Border>

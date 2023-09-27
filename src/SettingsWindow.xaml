@@ -2,10 +2,10 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
-        Title="Settings" ResizeMode="NoResize" WindowStyle="ToolWindow" WindowStartupLocation="CenterOwner" SizeToContent="WidthAndHeight" Height="379" Width="371"
+        Title="设置" ResizeMode="NoResize" WindowStyle="ToolWindow" WindowStartupLocation="CenterOwner" SizeToContent="WidthAndHeight" Height="379" Width="371"
         Icon="Icons/bell.ico">
     <StackPanel Margin="2">
-        <GroupBox Header="General" Padding="0,4,0,0">
+        <GroupBox Header="常规" Padding="0,4,0,0">
             <Grid Margin="5,4,0,2">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="18" />
@@ -16,15 +16,15 @@
                     <ColumnDefinition Width="150" />
                     <ColumnDefinition Width="Auto" />
                 </Grid.ColumnDefinitions>
-                <CheckBox Grid.Row="0" Grid.Column="0" IsChecked="{Binding Settings.AutoStartTimer}" ToolTip="Starts the timer when the application starts">Autostart timer</CheckBox>
-                <CheckBox Grid.Row="1" Grid.Column="0" IsChecked="{Binding Settings.TopMost}">Window always on top</CheckBox>
-                <CheckBox Grid.Row="0" Grid.Column="1" IsChecked="{Binding Settings.MinimizeOnTimerStart}">Minimize window after timer starts</CheckBox>
-                <CheckBox Grid.Row="1" Grid.Column="1" IsChecked="{Binding Settings.LoopTimer}">Restart timer automatically</CheckBox>
-                <CheckBox Grid.Row="2" Grid.Column="0" IsChecked="{Binding Settings.SnapWindow}" ToolTip="Snaps the main window to the corners of the desktop">Snap window</CheckBox>
-                <CheckBox Grid.Row="2" Grid.Column="2" IsChecked="{Binding Settings.ShowStarterInfo}" ToolTip="Displays the help panel in the main window">Show starter info panel</CheckBox>
+                <CheckBox Grid.Row="0" Grid.Column="0" IsChecked="{Binding Settings.AutoStartTimer}" ToolTip="应用启动时启动计时器">自动启动计时器</CheckBox>
+                <CheckBox Grid.Row="1" Grid.Column="0" IsChecked="{Binding Settings.TopMost}">窗口始终置顶</CheckBox>
+                <CheckBox Grid.Row="0" Grid.Column="1" IsChecked="{Binding Settings.MinimizeOnTimerStart}">计时器开始后最小化窗口</CheckBox>
+                <CheckBox Grid.Row="1" Grid.Column="1" IsChecked="{Binding Settings.LoopTimer}">自动重新启动计时器</CheckBox>
+                <CheckBox Grid.Row="2" Grid.Column="0" IsChecked="{Binding Settings.SnapWindow}" ToolTip="将主窗口捕捉到桌面的角落">捕捉窗口</CheckBox>
+                <CheckBox Grid.Row="2" Grid.Column="2" IsChecked="{Binding Settings.ShowStarterInfo}" ToolTip="在主窗口中显示帮助面板">显示起始信息面板</CheckBox>
             </Grid>
         </GroupBox>
-        <GroupBox Header="Alarm notifications" Margin="0,6,0,0" Padding="0,4,0,0">
+        <GroupBox Header="闹钟通知" Margin="0,6,0,0" Padding="0,4,0,0">
             <Grid Margin="5,4,0,2">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="18" />
@@ -35,17 +35,17 @@
                     <ColumnDefinition Width="Auto" />
                 </Grid.ColumnDefinitions>
                 <CheckBox Grid.Row="0" Grid.Column="0" IsChecked="{Binding Settings.FlashWindowWhenComplete}">
-                    <TextBlock>Flash window (<Hyperlink Click="TestFlash_Click">preview</Hyperlink>)</TextBlock>
+                    <TextBlock>闪烁窗口 (<Hyperlink Click="TestFlash_Click">预览</Hyperlink>)</TextBlock>
                 </CheckBox>
-                <CheckBox Grid.Row="0" Grid.Column="1" IsChecked="{Binding Settings.PopupWindowWhenComplete}">Popup window</CheckBox>
+                <CheckBox Grid.Row="0" Grid.Column="1" IsChecked="{Binding Settings.PopupWindowWhenComplete}">弹出窗口</CheckBox>
                 <CheckBox Grid.Row="1" Grid.Column="0" IsChecked="{Binding Settings.PlaySoundWhenComplete}">
-                    <TextBlock>Play sound (<Hyperlink Click="TestSound_Click">preview</Hyperlink>)</TextBlock>
+                    <TextBlock>播放声音 (<Hyperlink Click="TestSound_Click">预览</Hyperlink>)</TextBlock>
                 </CheckBox>
             </Grid>
         </GroupBox>
         <GroupBox Margin="0,6,0,0">
             <GroupBox.Header>
-                <TextBlock>Colors (<Hyperlink Click="ColorsReset_Click">Reset to default</Hyperlink>)</TextBlock>
+                <TextBlock>颜色 (<Hyperlink Click="ColorsReset_Click">重置为默认</Hyperlink>)</TextBlock>
             </GroupBox.Header>
             <Grid Margin="5,0,0,2">
                 <Grid.RowDefinitions>
@@ -58,10 +58,10 @@
                     <ColumnDefinition Width="75" />
                     <ColumnDefinition Width="Auto" />
                 </Grid.ColumnDefinitions>
-                <TextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" Margin="0,0,4,0">Work</TextBlock>
-                <TextBlock Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" Margin="0,0,4,0">Break</TextBlock>
-                <TextBlock Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" Margin="0,0,4,0">Background</TextBlock>
-                <TextBlock Grid.Row="0" Grid.Column="2" VerticalAlignment="Center" Margin="0,0,4,0">Foreground</TextBlock>
+                <TextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" Margin="0,0,4,0">工作</TextBlock>
+                <TextBlock Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" Margin="0,0,4,0">休息</TextBlock>
+                <TextBlock Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" Margin="0,0,4,0">背景</TextBlock>
+                <TextBlock Grid.Row="0" Grid.Column="2" VerticalAlignment="Center" Margin="0,0,4,0">前景</TextBlock>
                 <xctk:ColorPicker Width="50" Height="22" HorizontalAlignment="Left" Grid.Row="1" Grid.Column="2" SelectedColor="{Binding Settings.WorkTextColor}"/>
                 <xctk:ColorPicker Width="50" Height="22" HorizontalAlignment="Left" Grid.Row="2" Grid.Column="2" SelectedColor="{Binding Settings.BreakTextColor}"/>
                 <xctk:ColorPicker Width="50" Height="22" HorizontalAlignment="Left" Grid.Row="1" Grid.Column="1" SelectedColor="{Binding Settings.WorkBackgroundColor}"/>
@@ -70,7 +70,7 @@
         </GroupBox>
         <GroupBox Margin="0,6,0,0">
             <GroupBox.Header>
-                <TextBlock>Font (<Hyperlink Click="FontReset_Click">Reset to default</Hyperlink>)</TextBlock>
+                <TextBlock>字体 (<Hyperlink Click="FontReset_Click">重置为默认</Hyperlink>)</TextBlock>
             </GroupBox.Header>
             <Grid Margin="5,5,0,2">
                 <Grid.RowDefinitions>
@@ -81,16 +81,16 @@
                     <ColumnDefinition Width="150" />
                     <ColumnDefinition Width="Auto" />
                 </Grid.ColumnDefinitions>
-                <TextBlock Grid.Row="0" Grid.Column="0">Font family</TextBlock>
+                <TextBlock Grid.Row="0" Grid.Column="0">字体</TextBlock>
                 <ComboBox Grid.Column="0" Grid.Row="1" Width="140" HorizontalAlignment="Left" ItemsSource="{Binding FontNames}" SelectedValue="{Binding Settings.TextFontName}">
                 </ComboBox>
-                <TextBlock Grid.Row="0" Grid.Column="1">Font size</TextBlock>
+                <TextBlock Grid.Row="0" Grid.Column="1">字体大小</TextBlock>
                 <xctk:IntegerUpDown Grid.Row="1" Grid.Column="1" Value="{Binding Settings.TextFontSize}" Increment="2" Maximum="98" Minimum="12" Width="40" />
             </Grid>
         </GroupBox>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,4,2,2">
-            <Button IsDefault="True" Width="70" Click="OK_Click">OK</Button>
-            <Button IsCancel="True" Width="70" Margin="4,0,0,0" Click="Cancel_Click">Cancel</Button>
+            <Button IsDefault="True" Width="70" Click="OK_Click">确定</Button>
+            <Button IsCancel="True" Width="70" Margin="4,0,0,0" Click="Cancel_Click">取消</Button>
         </StackPanel>
     </StackPanel>
 </Window>
